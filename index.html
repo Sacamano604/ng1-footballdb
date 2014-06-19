@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +15,15 @@
     <![endif]-->
   </head>
   <body>
+    <div class="container">
+      <h3>Angular Day 1</h3>
+      Name: <input type="text" id="form-control" ng-model="name"> {{ name }}
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Include AngularJS -->
+    <script src="js/angular.min.js"></script>
   </body>
 </html>
