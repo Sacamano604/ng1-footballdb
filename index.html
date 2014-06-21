@@ -17,23 +17,18 @@
 </script>
   </head>
   <body>
-    <div class="container">
-      <h3>Angular Day 2</h3>
-    <form class="form-inline">
-  <div class="form-group">
-    <p>Enter temp in Celsius</p>
-    <input type="number" class="form-control" ng-model="celToFar">
-    <br />
-    <p ng-show="celToFar || celToFar == 0">{{ ((celToFar * 9) / 5) + 32 | number:0}} degrees fahrenheit</p>
-  </div>
-  <div class="form-group">
-    <p>Enter temp in Fahrenheit</p>
-    <input type="number" class="form-control" ng-model="farToCel">
-       <br />
-    <p ng-show="farToCel || farToCel == 0">{{ ((farToCel - 32) * 5) / 9 | number:0}} degrees celsius</p>
-  </div>
-</form>
-</div>
+    <div class="container" ng-init="teams=[{teamName:'Rangers FC', stadium:'Ibrox', city:'Glasgow'}, {teamName:'Chealea FC', stadium:'Stamford Bridge', city:'London'}, {teamName:'Bayern Munich', stadium:'Allianz Arena', city:'Munich'}, {teamName:'Manchester United', stadium:'Old Trafford', city:'Manchester'}, {teamName:'Real Madrid', city:'Madrid', stadium:'Santiago Bernabeu'}, {teamName:'Borussia Dortmund', stadium:'Westfalenstadion', city:'Dortmund'}]">
+      <h3>Angular Day 3</h3>
+      <form class="form-inline">
+      <div class="form-group">
+        <input type="text" ng-model="teamFilter" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <ul>
+          <li ng-repeat="team in teams | filter:teamFilter | orderBy:'teamName'">{{ team.teamName }} - {{ team.stadium }} - {{ team.city }}</li>
+        <ul>
+      </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
