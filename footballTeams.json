@@ -1,0 +1,251 @@
+[
+{
+	"name": "Rangers FC",
+	"founded": 1872,
+	"city": "Glasgow",
+	"stadium": "Ibrox",
+	"capacity": 50987,
+	"manager": "Ally McCoist",
+	"websiteLink": "http://www.rangers.co.uk/"
+
+},
+{
+	"name": "Celtic FC",
+	"founded": 1887,
+	"city": "Glasgow",
+	"stadium": "Celtic Park",
+	"capacity": 60335,
+	"manager": "Ronny Deila",
+	"websiteLink": "http://www.celticfc.net/"
+
+},
+{
+	"name": "Aberdeen FC",
+	"founded": 1903,
+	"city": "Aberdeen",
+	"stadium": "Pittodrie Stadium",
+	"capacity": 21421,
+	"manager": "Derek McInnes",
+	"websiteLink": "http://www.afc.co.uk/page/Welcome"
+
+},
+{
+	"name": "Motherwell FC",
+	"founded": 1886,
+	"city": "Motherwell",
+	"stadium": "Fir Park",
+	"capacity": 13677,
+	"manager": "Stuart McCall",
+	"websiteLink": "http://www.motherwellfc.co.uk/"
+
+},
+{
+	"name": "Manchester United",
+	"founded": 1878,
+	"city": "Greater Manchester",
+	"stadium": "Old Trafford",
+	"capacity": 75731,
+	"manager": "Louis Van Gaal",
+	"websiteLink": "http://www.manutd.com/"
+
+},
+{
+	"name": "Manchester City",
+	"founded": 1984,
+	"city": "Manchester",
+	"stadium": "City of Manchester Stadium",
+	"capacity": 47405,
+	"manager": "Manuel Pellegrini",
+	"websiteLink": "http://www.mcfc.co.uk/"
+
+},
+{
+	"name": "Arsenal FC",
+	"founded": 1886,
+	"city": "London",
+	"stadium": "Emirates Stadium",
+	"capacity": 60338,
+	"manager": "Arsene Wenger",
+	"websiteLink": "http://www.arsenal.com/"
+
+},
+{
+	"name": "Chelsea FC",
+	"founded": 1905,
+	"city": "Fulham, London",
+	"stadium": "Stamford Bridge",
+	"capacity": 41837,
+	"manager": "Jose Mourinho",
+	"websiteLink": "http://www.chelseafc.com/"
+
+},
+{
+	"name": "Tottenham Hotspur",
+	"founded": 1882,
+	"city": "Tottenham, London",
+	"stadium": "White Heart Lane",
+	"capacity": 36284,
+	"manager": "Mauricio Pochettino",
+	"websiteLink": "http://www.tottenhamhotspur.com/"
+
+},
+{
+	"name": "Atletico Madrid",
+	"founded": 1903,
+	"city": "Madrid",
+	"stadium": "Vicente Calderon Stadium",
+	"capacity": 54960,
+	"manager": "Diego Simeone",
+	"websiteLink": "http://www.clubatleticodemadrid.com/"
+
+},
+{
+	"name": "Real Madrid CF",
+	"founded": 1902,
+	"city": "Madrid",
+	"stadium": "Santiago Bernabeu Stadium",
+	"capacity": 85545,
+	"manager": "Carlo Ancelotti",
+	"websiteLink": "http://www.realmadrid.com/"
+
+},
+{
+	"name": "FC Barcelona",
+	"founded": 1899,
+	"city": "Barcelona",
+	"stadium": "Camp Nou",
+	"capacity": 99786,
+	"manager": "Louis Enrique",
+	"websiteLink": "http://www.fcbarcelona.com/"
+
+},
+{
+	"name": "Athletic Bilbao",
+	"founded": 1890,
+	"city": "Bilbao",
+	"stadium": "San Mames",
+	"capacity": 53332,
+	"manager": "Ernesto Valverde",
+	"websiteLink": "http://www.athletic-club.net"
+
+},
+{
+	"name": "Sevilla FC",
+	"founded": 1905,
+	"city": "Sevilla",
+	"stadium": "Ramon Sanchez Pizjuan,",
+	"capacity": 45500,
+	"manager": "Jose Castro Carmona",
+	"websiteLink": "http://sevillafc.es/nuevaweb/"
+
+},
+{
+	"name": "Bayern Munich",
+	"founded": 1900,
+	"city": "Munich",
+	"stadium": "Allianz Arena",
+	"capacity": 71137,
+	"manager": "Pep Guardiola",
+	"websiteLink": "http://www.fcbayern.de/en/"
+
+},
+{
+	"name": "Borussia Dortmud",
+	"founded": 1909,
+	"city": "Dortmud",
+	"stadium": "Westfalenstadion",
+	"capacity": 80645,
+	"manager": "Jurgen Klopp",
+	"websiteLink": "http://www.bvb.de/"
+
+},
+{
+	"name": "FC Schalke 04",
+	"founded": 1904,
+	"city": "Gelsenkirchen",
+	"stadium": "Veltins Arena",
+	"capacity": 61073,
+	"manager": "Jens Keller",
+	"websiteLink": "http://www.schalke04.de/"
+
+},
+{
+	"name": "Bayer Leverkusen",
+	"founded": 1904,
+	"city": "Leverkusen",
+	"stadium": "Bay Arena",
+	"capacity": 30210,
+	"manager": "Sascha Lewandowski",
+	"websiteLink": "http://www.bayer04.de/s"
+
+},
+{
+	"name": "VFL Wolfsburg",
+	"founded": 1945,
+	"city": "Wolfsburg",
+	"stadium": "Volkswagen Arena",
+	"capacity": 30000,
+	"manager": "Dieter Hecking",
+	"websiteLink": "http://www.vfl-wolfsburg.de/"
+
+},
+{
+	"name": "AFC Ajax",
+	"founded": 1900,
+	"city": "Amsterdam",
+	"stadium": "Amsterdam Arena",
+	"capacity": 52342,
+	"manager": "Frank de Boer",
+	"websiteLink": "http://www.ajax.nl/"
+
+},
+{
+	"name": "PSV Eindhoven",
+	"founded": 1913,
+	"city": "Eindhoven",
+	"stadium": "Philips Stadion",
+	"capacity": 35000,
+	"manager": "Phillip Cocu",
+	"websiteLink": "http://www.psv.nl/"
+
+},
+{
+	"name": "Feyenoord",
+	"founded": 1908,
+	"city": "Rotterdam",
+	"stadium": "De Kuip",
+	"capacity": 51177,
+	"manager": "Fred Rutten",
+	"websiteLink": "http://www.feyenoord.nl/"
+
+},
+{
+	"name": "Paris-Saint Germain FC",
+	"founded": 1970,
+	"city": "Paris",
+	"stadium": "Parc de Princes",
+	"capacity": 48712,
+	"manager": "Laurant Blanc",
+	"websiteLink": "http://www.psg.fr/"
+
+},
+{
+	"name": "Olympique Lyonnais",
+	"founded": 1950,
+	"city": "Lyon",
+	"stadium": "Stade de Gerland",
+	"capacity": 40500,
+	"manager": "Hubert Fournier",
+	"websiteLink": "http://www.olweb.fr/"
+},
+{
+	"name": "AJ Auxerre",
+	"founded": 1905,
+	"city": "Auxerre",
+	"stadium": "Stade de l'Abbe-Deschamps",
+	"capacity": 24493,
+	"manager": "Jean-Luc Vanucchi",
+	"websiteLink": "http://www.aja.fr/"
+
+}
+]
