@@ -1,4 +1,3 @@
-<!-- Using this file to parse the mySQL table to JSON file -->
 <?php
 //Set variabloes and locations for the connection.
 $hostname = "localhost";
@@ -13,12 +12,10 @@ $sql = "select * from teamList";
 
 $result = mysql_query($sql);
 $json = array();
-if(mysql_num_rows ($result)) {
-	while ($row = mysql_fetch_row($result)) {
-		$json[] = array('name' => $row['name'], 'founded' => $row['founded']);
+if (mysql_num_rows ($result)) {
+	while ($row = mysql_fetch_assoc($result)) {
+		$json[] = array('name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
 	}
 }
-//echo json_encode($json);
 echo json_encode($json);
-mysql_close();
 ?>
