@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="container" ng-controller="footballController">
-      <h3>Angular Day 4</h3>
+      <h3>Angular Day 5</h3>
       <input type="text" ng-model="teamFilter" class="form-control"/>
         <table class="table">
           <thead>
@@ -45,5 +45,6 @@
     <script src="js/angular.min.js"></script>
     <!-- Linking to the football app script -->
     <script src="js/footballApp.js"></script>
+
   </body>
 </html>
