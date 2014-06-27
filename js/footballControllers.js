@@ -14,11 +14,9 @@ footballControllers.controller('teamListController', [ "$scope", "$http",
 }]);
 
 footballControllers.controller('teamDetailController', ["$scope", "$routeParams", "http", 
-	function ($scope, $routeParams){
-    	$scope.teamId = $routeParams.teamId;
-	},
-	function ($scope, $http){
-	$http({method: 'GET', url: 'teams/teams.php?detail=list&id=' + $id }).success(function(data){
-    	$scope.teams = data;
+	function ($scope, $routeParams, $http){
+    $scope.teamId = $routeParams.teamId;
+    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId }).success(function(data){
+      $scope.teams = data;
     });
 }]);
