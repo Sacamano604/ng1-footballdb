@@ -13,10 +13,10 @@ footballControllers.controller('teamListController', [ "$scope", "$http",
     $scope.reverse = false;
 }]);
 
-footballControllers.controller('teamDetailController', ["$scope", "$routeParams", "http", 
+footballControllers.controller('teamDetailController', ["$scope", "$routeParams", "$http", 
 	function ($scope, $routeParams, $http){
     $scope.teamId = $routeParams.teamId;
-    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId }).success(function(data){
-      $scope.teams = data;
+    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + teamId }).success(function(data){
+      $scope.team = data;
     });
 }]);
