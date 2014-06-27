@@ -1,0 +1,21 @@
+        <input type="text" ng-model="teamFilter" class="form-control"/>
+        <table class="table" ng-controller="teamListController">
+          <thead>
+            <th><a href="" ng-click="sortField='name'; reverse = !reverse">Team Name</a></th>
+            <th><a href="" ng-click="sortField='founded'; reverse = !reverse">Founded</a></th>
+            <th><a href="" ng-click="sortField='city'; reverse = !reverse">City</a></th>
+            <th><a href="" ng-click="sortField='stadium'; reverse = !reverse">Stadium/Arena</a></th>
+            <th><a href="" ng-click="sortField='capacity'; reverse = !reverse">Capacity</a></th>
+            <th><a href="" ng-click="sortField='manager'; reverse = !reverse">Manager</a></th>
+            <th><a href="" ng-click="sortField='websiteLink'; reverse = !reverse">Team Website</a></th>
+          </thead>
+          <tr ng-repeat="team in teams | filter:teamFilter | orderBy:sortField:reverse">
+            <td><a href="#/teams/{{ team.id }}">{{ team.name }}</a></td>
+            <td>{{ team.founded }}</td>
+            <td>{{ team.city }}</td>
+            <td>{{ team.stadium }}</td>
+            <td>{{ team.capacity }}</td>
+            <td>{{ team.manager }}</td>
+            <td><a href="{{ team.websiteLink }}" target="_blank">Website Link</a></td>
+          </tr>
+        </table>

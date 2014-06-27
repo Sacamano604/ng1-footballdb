@@ -1,10 +1,24 @@
-"use strict";
+'use strict';
 
-var footballApp = angular.module('footballApp', []);
-    footballApp.controller('footballController', [ "$scope", "$http", function ($scope, $http){
-      $http({method: 'GET', url: 'teams.php'}).success(function(data){
-        $scope.teams = data;
-      });
-    $scope.sortField = 'name';
-    $scope.reverse = true;
-}]);
+// App Module
+
+var footballApp = angular.module('footballApp', [
+	'ngRoute', 
+	'footballControllers'
+]);
+
+footballApp.config(['$routeProvider', 
+	function($routeProvider) {
+		$routeProvider.
+			when('/teams', {
+				templateUrl: 'teams/teamList.html',
+				controllers: 'teamListController'
+			}).
+			when('/teams/:teamId', {
+				templateUrl: 'teams/teamTemplate.html',
+				controllers: 'teamDetailController'
+			}).
+			otherwise({
+				redirectTo: '/teams'
+		});
+	}]);
