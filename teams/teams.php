@@ -28,17 +28,10 @@ switch($_GET["action"]){
 			$sql = "SELECT * FROM teamList WHERE id = '$id'";
 			$result = mysql_query($sql);
 			if (mysql_num_rows ($result)) {
-			while ($row = mysql_fetch_assoc($result)) {
-				$json[] = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
-				}
+				if ($row = mysql_fetch_assoc($result)) {
+					$json = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
+					}
 			}	
 			echo json_encode($json);
-
-
-
-			//$sql = "SELECT * FROM teamList WHERE id = '$id'";
-			//$row = mysql_fetch_array($sql);
-			//$json[] = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
-			//echo json_encode($json);
 	break;
 }

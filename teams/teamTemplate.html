@@ -1,3 +1,25 @@
-<div ng-controller="teamDetailController">
-	<p>This is a team template for {{ team.id }}, which is {{ team.name }}</p>
-</div>
+<p>This is a team template for {{ team.id }}, which is {{ team.name }}</p>
+<p>This template is by no means finished. Images and an extra text field for description will be added later...</p>
+<table class="table" ng-controller="teamDetailController">
+	<tr>
+		<td><strong>Team Name:</strong></td>
+		<td>{{ team.name }}</td>
+		<td><strong>Year Founded:</strong></td>
+		<td>{{ team.founded }}</td>
+		<td colspan="2">IMAGE PLACEHOLDER???</td>
+	</tr>
+	<tr>
+		<td><strong>City Located:</strong></td>
+		<td>{{ team.city }}</td>
+		<td><strong>Stadium Name:</strong></td>
+		<td>{{ team.stadium }}</td>
+		<td><strong>Stadium Capacity:</strong></td>
+		<td>{{ team.capacity }}</td>
+	</tr>
+	<tr>
+		<td><strong>Current Manager:</strong></td>
+		<td>{{ team.manager }}</td>
+		<td><strong>Team Website:</strong></td>
+		<td><a href="{{ team.websiteLink }}" target="_blank">{{ team.websiteLink }}</a></td>
+	</tr>
+</table>
