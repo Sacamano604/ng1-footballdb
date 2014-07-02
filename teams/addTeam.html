@@ -1,0 +1,38 @@
+<p> 
+	<a href="#/teams" class="btn btn-default" role="button">View Team list</a> 
+	<a href="#/add" class="btn btn-primary active" role="button">Add a Team</a>
+</p>
+<div class="form-group">
+<form ng-controller="addTeamController" method="POST" ng-submit="addTeam(newTeam)">	
+	<table class="table">
+		<tr>
+			<td><strong>Team Name:</strong></td>
+			<td><input type="text" class="form-control" id="name" ng-model="newTeam.name" /></td>
+			<td><strong>Year Founded:</strong></td>
+			<td><input type="text" class="form-control" id="founded" ng-model="newTeam.founded" /></td>
+		</tr>
+		<tr>
+			<td><strong>City Located:</strong></td>
+			<td><input type="text" class="form-control" id="city" ng-model="newTeam.city" /></td>
+			<td><strong>Stadium Capacity:</strong></td>
+			<td><input type="text" class="form-control" id="capacity" ng-model="newTeam.capacity" /></td>
+		</tr>
+		<tr>
+			<td><strong>Team Manager Name:</strong></td>
+			<td><input type="text" class="form-control" id="manager" ng-model="newTeam.manager" /></td>
+			<td><strong>Website Link:</strong></td>
+			<td><input type="text" class="form-control" id="websiteLink" value="http://" ng-model="newTeam.websiteLink" /></td>
+		</tr>
+		<tr>
+			<td><strong>Club Badge Image:</strong></td>
+			<td colspan="3"><input type="file" id="image" class="form-control" ng-model="newTeam.image" /></td>
+		</tr>
+		<tr>
+			<td><strong>Extra Details:</strong></td>
+			<td colspan="3"><textarea class="form-control" id="details" rows="6" ng-model="newTeam.details"></textarea></td>
+		</tr>
+	</table>
+	<button type="submit" class="btn btn-success">Add Team</button>
+	<button type="reset" class="btn btn-danger">Reset Form</button>
+</form>
+</div>

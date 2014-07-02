@@ -34,4 +34,22 @@ switch($_GET["action"]){
 			}	
 			echo json_encode($json);
 	break;
+
+	case "add":
+		if (isset($_POST['add'])){
+			$name = $_POST['name'];
+			$founded = $_POST['founded'];
+			$city = $_POST['city'];
+			$stadium = $_POST['stadium'];
+			$capacity = $_POST['capacity'];
+			$manager = $_POST['manager'];
+			$websiteLink = $_POST['websiteLink'];
+			$image = $_POST['image'];
+			$details = $_POST['details'];
+		
+		$sql = "INSERT into teamList ('name', 'founded', 'city', 'stadium', 'capacity', 'manager', 'websiteLink', 'image', 'details') VALUES ('$name', '$founded', '$city', '$stadium', '$capacity', '$manager', '$websiteLink', '$image', '$details')";
+		$result = mysql_query($sql);
+	}
+	break;
+
 }

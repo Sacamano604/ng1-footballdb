@@ -18,6 +18,10 @@ footballApp.config(['$routeProvider',
 				templateUrl: 'teams/teamTemplate.html',
 				controllers: 'teamDetailController'
 			}).
+			when('/add', {
+				templateUrl: 'teams/addTeam.html',
+				controllers: 'addTeamController'
+			}).
 			otherwise({
 				redirectTo: '/teams'
 		});

@@ -20,3 +20,15 @@ footballControllers.controller('teamDetailController', ["$scope", "$routeParams"
       $scope.team = data;
     });
 }]);
+
+footballControllers.controller('addTeamController', ["$scope", "$http", 
+  function ($scope, $http){
+    $scope.addTeam = function(){
+      var data = $scope.newTeam;
+      $http.post('teams/teams.php?action=add', data)
+    };
+
+   // $http({method: 'POST', url: 'teams/teams.php?action=add'}).success(function(data){
+     // $scope.team = data;
+    //});
+  }]);
