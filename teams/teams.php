@@ -36,20 +36,28 @@ switch($_GET["action"]){
 	break;
 
 	case "add":
-		if (isset($_POST['add'])){
-			$name = $_POST['name'];
-			$founded = $_POST['founded'];
-			$city = $_POST['city'];
-			$stadium = $_POST['stadium'];
-			$capacity = $_POST['capacity'];
-			$manager = $_POST['manager'];
-			$websiteLink = $_POST['websiteLink'];
-			$image = $_POST['image'];
-			$details = $_POST['details'];
+	$json = file_get_contents('php://input');
+	$result = json_decode($json, true);
+	foreach($result as $value) { 
+		mysql_query("INSERT INTO teamList (name, founded, city, stadium, capacity, manager, websiteLink) 
+		VALUES ('".$value['name']."', '".$value['founded']."', '".$value['city']."', '".$value['stadium']."', '".$value['capacity']."', '".$value['manager']."', '".$value['websiteLink']."')");
+}
+	// if ($params){
+	// 		json_decode($params);
+	// 		$name = $_POST['name'];
+	// 		$founded = $_POST['founded'];
+	// 		$city = $_POST['city'];
+	// 		$stadium = $_POST['stadium'];
+	// 		$capacity = $_POST['capacity'];
+	// 		$manager = $_POST['manager'];
+	// 		$websiteLink = $_POST['websiteLink'];
+	// 		$image = $_POST['image'];
+	// 		$details = $_POST['details'];
 		
-		$sql = "INSERT into teamList ('name', 'founded', 'city', 'stadium', 'capacity', 'manager', 'websiteLink', 'image', 'details') VALUES ('$name', '$founded', '$city', '$stadium', '$capacity', '$manager', '$websiteLink', '$image', '$details')";
-		$result = mysql_query($sql);
-	}
+	// 	$sql = "INSERT into teamList ('name', 'founded', 'city', 'stadium', 'capacity', 'manager', 'websiteLink', 'image', 'details') VALUES ('$name', '$founded', '$city', '$stadium', '$capacity', '$manager', '$websiteLink', '$image', '$details')";
+	// 	$result = mysql_query($sql);
+	// 	echo $result;
+	// }
 	break;
 
 }

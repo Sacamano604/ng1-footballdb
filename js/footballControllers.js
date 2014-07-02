@@ -23,12 +23,17 @@ footballControllers.controller('teamDetailController', ["$scope", "$routeParams"
 
 footballControllers.controller('addTeamController', ["$scope", "$http", 
   function ($scope, $http){
-    $scope.addTeam = function(){
-      var data = $scope.newTeam;
-      $http.post('teams/teams.php?action=add', data)
-    };
+      $scope.addTeam = function(){
+        $scope.information = $scope.newTeam;
+         $http.post('teams/teams.php?action=add', $scope.information).success(function(data){
+            console.log($scope.information);
+            //something else needs to go here....but what!?!?!?!
+         })
+      };
+     
 
    // $http({method: 'POST', url: 'teams/teams.php?action=add'}).success(function(data){
      // $scope.team = data;
-    //});
+//});
   }]);
+
