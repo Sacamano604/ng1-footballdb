@@ -31,10 +31,5 @@ footballControllers.controller('addTeamController', ["$scope", "$http",
             $scope.json = angular.toJson($scope.information);
          })
       };
-     
-
-   // $http({method: 'POST', url: 'teams/teams.php?action=add'}).success(function(data){
-     // $scope.team = data;
-//});
-  }]);
+}]);
 

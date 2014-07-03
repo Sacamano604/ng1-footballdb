@@ -15,7 +15,7 @@ switch($_GET["action"]){
 		$result = mysql_query($sql);
 		if (mysql_num_rows ($result)) {
 		while ($row = mysql_fetch_assoc($result)) {
-			$json[] = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
+			$json[] = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink'], 'image' => $row['image'], 'details' => $row['details']);
 			}
 		}	
 		echo json_encode($json);
@@ -29,7 +29,7 @@ switch($_GET["action"]){
 			$result = mysql_query($sql);
 			if (mysql_num_rows ($result)) {
 				if ($row = mysql_fetch_assoc($result)) {
-					$json = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink']);
+					$json = array('id' => $row['id'], 'name' => $row['name'], 'founded' => $row['founded'], 'city' => $row['city'], 'stadium' => $row['stadium'], 'capacity' => $row['capacity'], 'manager' => $row['manager'], 'websiteLink' => $row['websiteLink'], 'image' => $row['image'], 'details' => $row['details']);
 					}
 			}	
 			echo json_encode($json);
