@@ -28,6 +28,7 @@ footballControllers.controller('addTeamController', ["$scope", "$http",
          $http.post('teams/teams.php?action=add', $scope.information).success(function(data){
             console.log($scope.information);
             //something else needs to go here....but what!?!?!?!
+            $scope.json = angular.toJson($scope.information);
          })
       };
      

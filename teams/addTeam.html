@@ -2,37 +2,69 @@
 	<a href="#/teams" class="btn btn-default" role="button">View Team list</a> 
 	<a href="#/add" class="btn btn-primary active" role="button">Add a Team</a>
 </p>
-<div class="form-group">
-<form ng-controller="addTeamController" ng-submit="addTeam()">	
-	<table class="table">
-		<tr>
-			<td><strong>Team Name:</strong></td>
-			<td><input type="text" class="form-control" id="name" ng-model="newTeam.name" /></td>
-			<td><strong>Year Founded:</strong></td>
-			<td><input type="text" class="form-control" id="founded" ng-model="newTeam.founded" /></td>
-		</tr>
-		<tr>
-			<td><strong>City Located:</strong></td>
-			<td><input type="text" class="form-control" id="city" ng-model="newTeam.city" /></td>
-			<td><strong>Stadium Capacity:</strong></td>
-			<td><input type="text" class="form-control" id="capacity" ng-model="newTeam.capacity" /></td>
-		</tr>
-		<tr>
-			<td><strong>Team Manager Name:</strong></td>
-			<td><input type="text" class="form-control" id="manager" ng-model="newTeam.manager" /></td>
-			<td><strong>Website Link:</strong></td>
-			<td><input type="text" class="form-control" id="websiteLink" value="http://" ng-model="newTeam.websiteLink" /></td>
-		</tr>
-		<tr>
-			<td><strong>Club Badge Image:</strong></td>
-			<td colspan="3"><input type="file" id="image" class="form-control" ng-model="newTeam.image" /></td>
-		</tr>
-		<tr>
-			<td><strong>Extra Details:</strong></td>
-			<td colspan="3"><textarea class="form-control" id="details" rows="6" ng-model="newTeam.details"></textarea></td>
-		</tr>
-	</table>
-	<button type="submit" ng-model="submit" class="btn btn-success">Add Team</button>
-	<button type="reset" class="btn btn-danger">Reset Form</button>
+<form class="form-horizontal" ng-controller="addTeamController" ng-submit="addTeam()">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 form-label">Team Name:</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="name" ng-model="newTeam.name" />
+		</div>
+
+		<label for="founded" class="col-sm-2 form-label">Year Founded:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="founded" ng-model="newTeam.founded" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="city" class="col-sm-2 form-label">City Located:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="city" ng-model="newTeam.city" />
+		</div>
+		
+		<label for="stadium" class="col-sm-2 form-label">Stadium Name:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="stadium" ng-model="newTeam.stadium" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="capacity" class="col-sm-2 form-label">Stadium Capacity:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="capacity" ng-model="newTeam.capacity" />
+		</div>
+		
+		<label for="manager" class="col-sm-2 form-label">Manager Name:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="manager" ng-model="newTeam.manager" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="websiteLink" class="col-sm-2 form-label">Website Link:</label>
+		<div class="col-sm-4">				
+			<input type="text" class="form-control" id="websiteLink" ng-model="newTeam.websiteLink" value="http://" />
+		</div>
+		
+		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
+		<div class="col-sm-4">				
+			<input type="file" id="image" class="form-control" ng-model="newTeam.image" />
+		</div>
+	</div>
+
+ 	<div class="form-group">
+            <label for="details" class="col-sm-2 form-label">Details:</label>
+            <div class="col-sm-10">
+                <textarea id="details" class="form-control" rows="6"></textarea>
+            </div>
+        </div>
+
+     <div class="form-group">
+     	<div class="col-sm-12">
+     		<button type="submit" ng-model="submit" class="btn btn-success">Add Team</button>
+			<button type="reset" class="btn btn-danger">Reset Form</button>
+     	</div>
+     </div>
+
+	
+	
 </form>
 </div>
