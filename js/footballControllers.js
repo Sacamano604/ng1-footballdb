@@ -21,15 +21,13 @@ footballControllers.controller('teamDetailController', ["$scope", "$routeParams"
     });
 }]);
 
-footballControllers.controller('addTeamController', ["$scope", "$http", 
-  function ($scope, $http){
+footballControllers.controller('addTeamController', ["$scope", "$http", "$location", 
+  function ($scope, $http, $location){
       $scope.addTeam = function(){
         $scope.information = $scope.newTeam;
          $http.post('teams/teams.php?action=add', $scope.information).success(function(data){
-            console.log($scope.information);
-            //something else needs to go here....but what!?!?!?!
             $scope.json = angular.toJson($scope.information);
+            $location.path('/teams');
          })
       };
 }]);
-

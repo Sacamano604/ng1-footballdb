@@ -15,7 +15,7 @@ footballApp.config(['$routeProvider',
 				controllers: 'teamListController'
 			}).
 			when('/teams/:teamId', {
-				templateUrl: 'teams/teamTemplate.html',
+				templateUrl: 'teamsf/teamTemplate.html',
 				controllers: 'teamDetailController'
 			}).
 			when('/add', {
