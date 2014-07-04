@@ -36,8 +36,11 @@ function ($scope, $http, $location){
     formData.append("image", $scope.imageSubmit);
     formData.append("details", $scope.details);
 
-   $http.post('teams/teams.php?action=add', formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } });
-      return false;
+   $http.post("teams/teams.php?action=add", formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
+      //return false;
+       $location.path('/teams');
+   });
+    
   };
 }]);
  

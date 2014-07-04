@@ -1,10 +1,10 @@
-<table class="table" ng-controller="teamDetailController">
+<!--<table class="table" >
 	<tr>
 		<td><strong>Team Name:</strong></td>
 		<td>{{ team.name }}</td>
 		<td><strong>Year Founded:</strong></td>
 		<td>{{ team.founded }}</td>
-		<td colspan="2">IMAGE PLACEHOLDER???</td>
+		<td colspan="2"><img src="{{ team.image }}" /></td>
 	</tr>
 	<tr>
 		<td><strong>City Located:</strong></td>
@@ -24,3 +24,32 @@
 		<td colspan="4">{{ team.details }}</td>
 	</tr>
 </table>
+-->
+<div class="container" ng-controller="teamDetailController" style="padding-top: 25px;">
+	<div class="row">
+		<div class="col-md-4">
+			<img src="{{ team.image }}" height="200"/>
+		</div>
+		<div class="col-md-8">
+			<label for="name">Team Name:</label>
+			<span id="name">{{ team.name }}</span><br />
+			<label for="founded">Year Founded:</label>
+			<span id="founded">{{ team.founded }}</span><br />
+			<label for="manager">Manager Name:</label>
+			<span id="manager">{{ team.manager }}</span><br />
+			<label for="city">City Located:</label>
+			<span id="city">{{ team.city }}</span><br />
+			<label for="stadium">Stadium Name:</label>
+			<span id="stadium">{{ team.stadium }}</span><br />
+			<label for="capacity">Stadium Capacity:</label>
+			<span id="capacity">{{ team.capacity }}</span><br />
+			<label for="websiteLink">Website Link:</label>
+			<span id="websiteLink"><a href="{{ team.websiteLink }}" target="_blank">{{ team.websiteLink }}</a></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md.12">
+			<p>{{ team.details }}</p>
+		</div>
+	</div>
+</div>

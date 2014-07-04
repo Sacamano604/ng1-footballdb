@@ -36,17 +36,31 @@ switch($_GET["action"]){
 	break;
 
 	case "add":
-		$json = file_get_contents("php://input");
-		$result = json_decode($json, true);
 
-		$uploadFolder = "../badges/";
-		$uploadFile = basename($_FILES['image']['name']); 
-		$uploadPath = $uploadFolder . $uploadFile;
+	//	$uploadFolder = "/badges/";
+	//	$uploadFile = basename($_FILES['image']['image']); 
+	//	$uploadPath = $uploadFolder . $uploadFile;
 
-		move_uploaded_file($_FILES['image']['tmp_name'], $uploadPath);
+	//	move_uploaded_file($_FILES['image']['tmp_name'], $uploadPath);
 
 
-		$sql = "INSERT INTO teamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES ('".$result['name']."', '".$result['founded']."', '".$result['city']."', '".$result['stadium']."', '".$result['capacity']."', '".$result['manager']."', '".$result['websiteLink']."', '".$uploadFile."', '".$result['details']."')";
+		$name = $_POST['name'];
+		$founded = $_POST['founded'];
+		$city = $_POST['city'];
+		$stadium = $_POST['stadium'];
+		$capacity = $_POST['capacity'];
+		$manager = $_POST['manager'];
+		$websiteLink = $_POST['websiteLink'];
+		$image = $_POST['image'];
+		$details = $_POST['details'];
+		//$json = file_get_contents("php://input");
+		//$result = json_decode($json, true);
+		
+
+		
+
+		
+		$sql = "INSERT INTO teamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES ('$name', '$founded', '$city', '$stadium', '$capacity', '$manager', '$websiteLink', '$image', '$details')";
 		mysql_query($sql) or die(mysql_error());
 	break;
 
