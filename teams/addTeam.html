@@ -6,54 +6,54 @@
 	<div class="form-group">
 		<label for="name" class="col-sm-2 form-label">Team Name:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="name" ng-model="newTeam.name" />
+			<input type="text" class="form-control" id="name" ng-model="name" />
 		</div>
 
 		<label for="founded" class="col-sm-2 form-label">Year Founded:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="founded" ng-model="newTeam.founded" />
+			<input type="text" class="form-control" id="founded" ng-model="founded" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="city" class="col-sm-2 form-label">City Located:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="city" ng-model="newTeam.city" />
+			<input type="text" class="form-control" id="city" ng-model="city" />
 		</div>
 		
 		<label for="stadium" class="col-sm-2 form-label">Stadium Name:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="stadium" ng-model="newTeam.stadium" />
+			<input type="text" class="form-control" id="stadium" ng-model="stadium" />
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="capacity" class="col-sm-2 form-label">Stadium Capacity:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="capacity" ng-model="newTeam.capacity" />
+			<input type="text" class="form-control" id="capacity" ng-model="capacity" />
 		</div>
 		
 		<label for="manager" class="col-sm-2 form-label">Manager Name:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="manager" ng-model="newTeam.manager" />
+			<input type="text" class="form-control" id="manager" ng-model="manager" />
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="websiteLink" class="col-sm-2 form-label">Website Link:</label>
 		<div class="col-sm-4">				
-			<input type="text" value="http://" class="form-control" id="websiteLink" ng-model="newTeam.websiteLink" />
+			<input type="text" value="http://" class="form-control" id="websiteLink" ng-model="websiteLink" />
 		</div>
 		
 		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
 		<div class="col-sm-4">				
-			<input type="file" id="image" class="form-control" ng-file-select="onFileSelect(file)" ng-model="newTeam.image" />
+			<input type="file" id="image" class="form-control" fileread="imageSubmit" />
 		</div>
 	</div>
 
  	<div class="form-group">
             <label for="details" class="col-sm-2 form-label">Details:</label>
             <div class="col-sm-10">
-                <textarea id="details" class="form-control" rows="6" ng-model="newTeam.details" ></textarea>
+                <textarea id="details" class="form-control" rows="6" ng-model="details" ></textarea>
             </div>
         </div>
 

@@ -22,23 +22,46 @@ footballControllers.controller('teamDetailController', ["$scope", "$routeParams"
 }]);
 
 footballControllers.controller('addTeamController', ["$scope", "$http", "$location", 
-  function ($scope, $http, $location){
-   // $scope.onFileSelect = function(file){
-     // console.log(file);
+function ($scope, $http, $location){
+  $scope.addTeam = function(){
+    var formData = new FormData();
 
-    //   $scope.upload = uploadItem({url: '/images', file: $file}).success(function(data){
-      //    $scope.file = data;
-      // });
-    //};
-      $scope.addTeam = function(){
-        var test = document.getElementById('image');
-        console.log(test.value);
-       
-        $scope.information = $scope.newTeam;
-         $http.post('teams/teams.php?action=add', $scope.information).success(function(data){
-            $location.path('/teams');
-         })
-      };
+    formData.append("name", $scope.name);
+    formData.append("founded", $scope.founded);
+    formData.append("city", $scope.city);
+    formData.append("stadium", $scope.stadium);
+    formData.append("capacity", $scope.capacity);
+    formData.append("manager", $scope.manager);
+    formData.append("websiteLink", $scope.websiteLink);
+    formData.append("image", $scope.imageSubmit);
+    formData.append("details", $scope.details);
+
+   $http.post('teams/teams.php?action=add', formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } });
+      return false;
+  };
 }]);
+ 
+  footballControllers.directive("fileread", [function () {
+    return {
+      scope: {
+        fileread: "="
+      },
+      link: function (scope, element, attributes) {
+        element.bind("change", function (changeEvent) {
+          var reader = new FileReader();
+          reader.onload = function (loadEvent) {
+            scope.$apply(function () {
+              scope.fileread = loadEvent.target.result;
+            });
+          }
+          reader.readAsDataURL(changeEvent.target.files[0]);
+        });
+
+      }
+    }
+  }]);
+
+
+
 
 

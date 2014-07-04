@@ -38,7 +38,15 @@ switch($_GET["action"]){
 	case "add":
 		$json = file_get_contents("php://input");
 		$result = json_decode($json, true);
-		$sql = "INSERT INTO teamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES ('".$result['name']."', '".$result['founded']."', '".$result['city']."', '".$result['stadium']."', '".$result['capacity']."', '".$result['manager']."', '".$result['websiteLink']."', '".$result['image']."', '".$result['details']."')";
+
+		$uploadFolder = "../badges/";
+		$uploadFile = basename($_FILES['image']['name']); 
+		$uploadPath = $uploadFolder . $uploadFile;
+
+		move_uploaded_file($_FILES['image']['tmp_name'], $uploadPath);
+
+
+		$sql = "INSERT INTO teamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES ('".$result['name']."', '".$result['founded']."', '".$result['city']."', '".$result['stadium']."', '".$result['capacity']."', '".$result['manager']."', '".$result['websiteLink']."', '".$uploadFile."', '".$result['details']."')";
 		mysql_query($sql) or die(mysql_error());
 	break;
 
