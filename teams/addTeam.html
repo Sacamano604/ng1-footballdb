@@ -41,12 +41,12 @@
 	<div class="form-group">
 		<label for="websiteLink" class="col-sm-2 form-label">Website Link:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="websiteLink" ng-model="newTeam.websiteLink" value="http://" />
+			<input type="text" value="http://" class="form-control" id="websiteLink" ng-model="newTeam.websiteLink" />
 		</div>
 		
 		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
 		<div class="col-sm-4">				
-			<input type="file" id="image" class="form-control" ng-model="newTeam.image" />
+			<input type="file" id="image" class="form-control" ng-file-select="onFileSelect(file)" ng-model="newTeam.image" />
 		</div>
 	</div>
 

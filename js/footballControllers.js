@@ -23,11 +23,22 @@ footballControllers.controller('teamDetailController', ["$scope", "$routeParams"
 
 footballControllers.controller('addTeamController', ["$scope", "$http", "$location", 
   function ($scope, $http, $location){
+   // $scope.onFileSelect = function(file){
+     // console.log(file);
+
+    //   $scope.upload = uploadItem({url: '/images', file: $file}).success(function(data){
+      //    $scope.file = data;
+      // });
+    //};
       $scope.addTeam = function(){
+        var test = document.getElementById('image');
+        console.log(test.value);
+       
         $scope.information = $scope.newTeam;
          $http.post('teams/teams.php?action=add', $scope.information).success(function(data){
-            $scope.json = angular.toJson($scope.information);
             $location.path('/teams');
          })
       };
 }]);
+
+

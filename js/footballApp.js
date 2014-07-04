@@ -4,6 +4,7 @@
 
 var footballApp = angular.module('footballApp', [
 	'ngRoute', 
+	'angularFileUpload',
 	'footballControllers'
 ]);
 
@@ -15,7 +16,7 @@ footballApp.config(['$routeProvider',
 				controllers: 'teamListController'
 			}).
 			when('/teams/:teamId', {
-				templateUrl: 'teamsf/teamTemplate.html',
+				templateUrl: 'teams/teamTemplate.html',
 				controllers: 'teamDetailController'
 			}).
 			when('/add', {
