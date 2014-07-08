@@ -15,7 +15,6 @@ switch($_GET["action"]){
 
 	case "detail":
 	 	$id = $_GET['id'];
-	 	$stmt = $mysqli->stmt_init();
 		$query = $mysqli->prepare('SELECT * FROM teamList WHERE id = ?');
 		$query->bind_param('i', $id);
 		$query->execute();
