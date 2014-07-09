@@ -11,18 +11,18 @@ footballApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/teams', {
-				templateUrl: 'teams/teamList.html',
-				controllers: 'teamListController'
+			templateUrl: 'teams/teamList.html',
+			controllers: 'teamListController'
 			}).
 			when('/teams/:teamId', {
-				templateUrl: 'teams/teamTemplate.html',
-				controllers: 'teamDetailController'
+			templateUrl: 'teams/teamTemplate.html',
+			controllers: 'teamDetailController'
 			}).
 			when('/add', {
-				templateUrl: 'teams/addTeam.html',
-				controllers: 'addTeamController'
+			templateUrl: 'teams/addTeam.html',
+			controllers: 'addTeamController'
 			}).
 			otherwise({
-				redirectTo: '/teams'
+			redirectTo: '/teams'
 		});
 	}]);

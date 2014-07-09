@@ -1,8 +1,9 @@
 <?php
+//MYSQLI sting to connect to the database
 $mysqli = mysqli_connect("localhost", "bentouss_testing", "b3ntoussi", "bentouss_testing");
 
-
 switch($_GET["action"]){
+	// Switch case for the team list controller
 	case "list":
 		$query = "SELECT * FROM newteamList";
 		$result = $mysqli->query($query);
@@ -12,7 +13,7 @@ switch($_GET["action"]){
 		echo json_encode($json);
 		$mysqli->close();
 	break;
-
+	// Switch case for the team details controller
 	case "detail":
 	 	$id = $_GET['id'];
 		$query = $mysqli->prepare('SELECT * FROM newteamList WHERE id = ?');
@@ -25,7 +26,7 @@ switch($_GET["action"]){
 		 echo json_encode($json);
 		 $mysqli->close();
 	break;
-
+	// Switch case for the add team controller
 	case "add":
 		$query = $mysqli->prepare('INSERT INTO newteamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$query->bind_param('sssssssss', $_POST['name'], $_POST['founded'], $_POST['city'], $_POST['stadium'], $_POST['capacity'], $_POST['manager'], $_POST['websiteLink'], $_POST['image'], $_POST['details']);
