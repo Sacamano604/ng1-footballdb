@@ -1,11 +1,20 @@
        <p> 
         <a href="#/teams" class="btn btn-primary active" role="button">View Team list</a> 
         <a href="#/add" class="btn btn-default" role="button">Add a Team</a>
-       </p>
-
-    
+       </p>    
         <input type="text" ng-model="teamFilter" class="form-control"/>
-        <table class="table" ng-controller="teamListController">
+        <div ng-controller="teamListController">
+
+          <div id="loadingDiv" ng-show="loading" class="alert alert-success">
+            Loading, please wait...
+        </div>
+
+
+        <div ng-show="!loading"> 
+          
+
+          
+        <table class="table">
           <thead>
             <th><a href="" ng-click="sortField='name'; reverse = !reverse">Team Name</a></th>
             <th><a href="" ng-click="sortField='founded'; reverse = !reverse">Founded</a></th>
@@ -25,3 +34,5 @@
             <td><a href="{{ team.websiteLink }}" target="_blank">Website Link</a></td>
           </tr>
         </table>
+      </div>
+</div>

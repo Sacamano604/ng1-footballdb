@@ -1,13 +1,12 @@
 'use strict';
 
-// App Module
-
+// Football App Module
 var footballApp = angular.module('footballApp', [
 	'ngRoute', 
 	'angularFileUpload',
 	'footballControllers'
 ]);
-
+// Football App route provider
 footballApp.config(['$routeProvider', 
 	function($routeProvider) {
 		$routeProvider.

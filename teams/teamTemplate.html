@@ -1,32 +1,13 @@
-<!--<table class="table" >
-	<tr>
-		<td><strong>Team Name:</strong></td>
-		<td>{{ team.name }}</td>
-		<td><strong>Year Founded:</strong></td>
-		<td>{{ team.founded }}</td>
-		<td colspan="2"><img src="{{ team.image }}" /></td>
-	</tr>
-	<tr>
-		<td><strong>City Located:</strong></td>
-		<td>{{ team.city }}</td>
-		<td><strong>Stadium Name:</strong></td>
-		<td>{{ team.stadium }}</td>
-		<td><strong>Stadium Capacity:</strong></td>
-		<td>{{ team.capacity }}</td>
-	</tr>
-	<tr>
-		<td><strong>Current Manager:</strong></td>
-		<td>{{ team.manager }}</td>
-		<td><strong>Team Website:</strong></td>
-		<td><a href="{{ team.websiteLink }}" target="_blank">{{ team.websiteLink }}</a></td>
-	</tr>
-	<tr>
-		<td colspan="4">{{ team.details }}</td>
-	</tr>
-</table>
--->
-<div class="container" ng-controller="teamDetailController" style="padding-top: 25px;">
-	<div class="row">
+
+<div ng-controller="teamDetailController" style="padding-top: 25px;">
+	
+  <div id="loadingDiv" ng-show="loading" class="alert alert-success">
+            Loading, please wait...
+  </div>
+
+
+	<div class="row" ng-show="!loading">
+	<a href back-button>back</a>
 		<div class="col-md-4">
 			<img src="{{ team.image }}" height="200"/>
 		</div>
@@ -46,10 +27,11 @@
 			<label for="websiteLink">Website Link:</label>
 			<span id="websiteLink"><a href="{{ team.websiteLink }}" target="_blank">{{ team.websiteLink }}</a></span>
 		</div>
-	</div>
+
 	<div class="row">
 		<div class="col-md.12">
 			<p>{{ team.details }}</p>
 		</div>
 	</div>
+</div>
 </div>
