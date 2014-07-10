@@ -67,7 +67,7 @@ footballControllers.directive("fileread", [function () {
   }
   }
 }]);
-// Directuve that handles the back button which can be implemented where needed.
+// Directive that handles the back button which can be implemented where needed.
 footballControllers.directive('backButton', function(){
     return {
       restrict: 'A',
@@ -80,6 +80,27 @@ footballControllers.directive('backButton', function(){
       }
     }
 });
+
+
+
+
+footballControllers.directive('input', function ($parse) {
+  return {
+    restrict: 'E',
+    require: '?ngModel',
+    link: function (scope, element, attrs) {
+      if (attrs.ngModel && attrs.value) {
+        $parse(attrs.ngModel).assign(scope, attrs.value);
+      }
+    }
+  };
+});
+
+
+
+
+
+
 //Setting the initial loading to be true for the 3 second delay on the details and list page
 footballControllers.run(function($rootScope){
   $rootScope.loading = true;  
