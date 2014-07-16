@@ -22,6 +22,10 @@ footballApp.config(['$routeProvider',
 			templateUrl: 'teams/addTeam.html',
 			controllers: 'addTeamController'
 			}).
+			when('/edit/:teamId', {
+			templateUrl: 'teams/editTeam.html',
+			controllers: 'editTeamController'	
+			}).
 			otherwise({
 			redirectTo: '/teams'
 		});

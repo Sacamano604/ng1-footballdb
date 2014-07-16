@@ -48,6 +48,27 @@ function ($scope, $http, $location){
     });  
   };
 }]);
+
+
+
+//Controller that handles the edit team page and how the data is pulled/pushed to the DB
+footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
+  function ($scope, $routeParams, $http, $locaiton){
+    $scope.teamId = $routeParams.teamId;
+    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
+      $scope.team = data;;
+    });
+  }]);
+
+
+
+
+
+
+
+
+
+
 // Directive that adds file read to the image upload in the add team controller 
 footballControllers.directive("fileread", [function () {
   return {
@@ -71,7 +92,6 @@ footballControllers.directive("fileread", [function () {
 footballControllers.directive('backButton', function(){
     return {
       restrict: 'A',
-
       link: function(scope, element, attrs) {
         element.bind('click', function () {
           history.back();
@@ -80,10 +100,7 @@ footballControllers.directive('backButton', function(){
       }
     }
 });
-
-
-
-
+//Directive that makes sure any 'value' attribute assigned to an input field is bound properly.
 footballControllers.directive('input', function ($parse) {
   return {
     restrict: 'E',
@@ -95,12 +112,6 @@ footballControllers.directive('input', function ($parse) {
     }
   };
 });
-
-
-
-
-
-
 //Setting the initial loading to be true for the 3 second delay on the details and list page
 footballControllers.run(function($rootScope){
   $rootScope.loading = true;  
