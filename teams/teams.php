@@ -28,8 +28,19 @@ switch($_GET["action"]){
 	break;
 	// Switch case for the add team controller
 	case "add":
+		//header('Content-Type: image/png');
+		$dataString = $_POST['image'];
+		define('UPLOAD_DIR', '../badges/');
+		$img = $dataString;
+		$img = str_replace('data:image/png;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		$file = UPLOAD_DIR . uniqid() . '.png';
+		$success = file_put_contents($file, $data);
+
+
 		$query = $mysqli->prepare('INSERT INTO newteamList (name, founded, city, stadium, capacity, manager, websiteLink, image, details) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$query->bind_param('sssssssss', $_POST['name'], $_POST['founded'], $_POST['city'], $_POST['stadium'], $_POST['capacity'], $_POST['manager'], $_POST['websiteLink'], $_POST['image'], $_POST['details']);
+		$query->bind_param('sssssssss', $_POST['name'], $_POST['founded'], $_POST['city'], $_POST['stadium'], $_POST['capacity'], $_POST['manager'], $_POST['websiteLink'], $file, $_POST['details']);
 		$query->execute();
 		$mysqli->close();
 	break;
