@@ -61,15 +61,15 @@ footballControllers.controller('editTeamController', ["$scope", "$routeParams", 
     $scope.editTeam = function(){
     //Append all data to a new 'formData();'
     var formData = new FormData();
-    formData.append("teamedit.name", $scope.teamedit.name);
-    formData.append("teamedit.founded", $scope.teamedit.founded);
-    formData.append("teamedit.city", $scope.teamedit.city);
-    formData.append("teamedit.stadium", $scope.teamedit.stadium);
-    formData.append("teamedit.capacity", $scope.teamedit.capacity);
-    formData.append("teamedit.manager", $scope.teamedit.manager);
-    formData.append("teamedit.websiteLink", $scope.teamedit.websiteLink);
-    formData.append("teamedit.image", $scope.teamedit.imageSubmit);
-    formData.append("teamedit.details", $scope.teamedit.details);
+    formData.append("name", $scope.teamedit.name);
+    formData.append("founded", $scope.teamedit.founded);
+    formData.append("city", $scope.teamedit.city);
+    formData.append("stadium", $scope.teamedit.stadium);
+    formData.append("capacity", $scope.teamedit.capacity);
+    formData.append("manager", $scope.teamedit.manager);
+    formData.append("websiteLink", $scope.teamedit.websiteLink);
+    formData.append("image", $scope.teamedit.imageSubmit);
+    formData.append("details", $scope.teamedit.details);
     //post form data to the action case of the php switch
     $http.post("teams/teams.php?action=edit&id=" + $scope.teamedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
        //once team is added, redirect user back to the teams list

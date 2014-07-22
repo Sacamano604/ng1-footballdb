@@ -52,13 +52,13 @@ switch($_GET["action"]){
 
 
 	case "edit":
-		$id = $_POST['id'];
-		$file = $_POST['teamedit.image'];
+		$id = $_GET['id'];
+		$file = $_POST['image'];
 
 		//echo "the id is: ".$id." and there you go";
 
 		$query = $mysqli->prepare('UPDATE newteamList SET name = ?, founded = ?, city = ?, stadium = ?, capacity = ?, manager = ?, websiteLink = ?, image = ?, details = ? WHERE id = ?');
-		$query->bind_param('sssssssssi', $_POST['teamedit.name'], $_POST['teamedit.founded'], $_POST['teamedit.city'], $_POST['teamedit.stadium'], $_POST['teamedit.capacity'], $_POST['teamedit.manager'], $_POST['teamedit.websiteLink'], $file, $_POST['teamedit.details'], $id);
+		$query->bind_param('sssssssssi', $_POST['name'], $_POST['founded'], $_POST['city'], $_POST['stadium'], $_POST['capacity'], $_POST['manager'], $_POST['websiteLink'], $file, $_POST['details'], $id);
 		$query->execute();
 		$mysqli->close();
 	break;
