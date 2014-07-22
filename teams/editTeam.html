@@ -1,73 +1,62 @@
-<div ng-controller="editTeamController">
-	<p><a href back-button><< Back</a></p>
-	<p>I am the edit team controller</p>
-	<p>Team ID: {{ teamId }}</p>
-
-
-
-
-
-
-
-
-<form class="form-horizontal" ng-submit="">
+<form class="form-horizontal" ng-controller="editTeamController" ng-submit="editTeam()">
+	<p>The team ID is: {{ teamedit.id }}</p>
 	<div class="form-group">
 		<label for="name" class="col-sm-2 form-label">Team Name:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control" id="name" ng-model="team.name" />
+			<input type="text" class="form-control" id="name" ng-model="teamedit.name" />
 		</div>
 
 		<label for="founded" class="col-sm-2 form-label">Year Founded:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="founded" ng-model="team.founded" />
+			<input type="text" class="form-control" id="founded" ng-model="teamedit.founded" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="city" class="col-sm-2 form-label">City Located:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="city" ng-model="team.city" />
+			<input type="text" class="form-control" id="city" ng-model="teamedit.city" />
 		</div>
 		
 		<label for="stadium" class="col-sm-2 form-label">Stadium Name:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="stadium" ng-model="team.stadium" />
+			<input type="text" class="form-control" id="stadium" ng-model="teamedit.stadium" />
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="capacity" class="col-sm-2 form-label">Stadium Capacity:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="capacity" ng-model="team.capacity" />
+			<input type="text" class="form-control" id="capacity" ng-model="teamedit.capacity" />
 		</div>
 		
 		<label for="manager" class="col-sm-2 form-label">Manager Name:</label>
 		<div class="col-sm-4">				
-			<input type="text" class="form-control" id="manager" ng-model="team.manager" />
+			<input type="text" class="form-control" id="manager" ng-model="teamedit.manager" />
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="websiteLink" class="col-sm-2 form-label">Website Link:</label>
 		<div class="col-sm-4">				
-			<input type="text" value="http://" class="form-control" id="websiteLink" ng-model="team.websiteLink" />
+			<input type="text" value="http://" class="form-control" id="websiteLink" ng-model="teamedit.websiteLink" />
 		</div>
 		
 		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
 		<div class="col-sm-4">				
 			<!-- Custom file read directive added to the input tag -->
-			<input type="file" id="image" class="form-control"  fileread="imageSubmit" />
+			<input type="file" id="image" class="form-control"  ng-model="teamedit.image" fileread="imageSubmit" />
 		</div>
 	</div>
 
  	<div class="form-group">
             <label for="details" class="col-sm-2 form-label">Details:</label>
             <div class="col-sm-10">
-                <textarea id="details" class="form-control" rows="6" ng-model="team.details" ></textarea>
+                <textarea id="details" class="form-control" rows="6" ng-model="teamedit.details" ></textarea>
             </div>
         </div>
      <div class="form-group">
      	<div class="col-sm-12">
-     		<button type="submit" ng-model="submit" class="btn btn-success">Complete Edit</button>
+     		<button type="submit" ng-model="submit" class="btn btn-success" name="update" id="update" value="update">Complete Edit</button>
 			<button type="reset" class="btn btn-warning">Reset Form</button>
      	</div>
      </div>

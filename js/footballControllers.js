@@ -53,12 +53,31 @@ function ($scope, $http, $location){
 
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
-  function ($scope, $routeParams, $http, $locaiton){
+  function ($scope, $routeParams, $http, $location){
     $scope.teamId = $routeParams.teamId;
     $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
-      $scope.team = data;;
+      $scope.teamedit = data;
     });
-  }]);
+    $scope.editTeam = function(){
+    //Append all data to a new 'formData();'
+    var formData = new FormData();
+    formData.append("teamedit.name", $scope.teamedit.name);
+    formData.append("teamedit.founded", $scope.teamedit.founded);
+    formData.append("teamedit.city", $scope.teamedit.city);
+    formData.append("teamedit.stadium", $scope.teamedit.stadium);
+    formData.append("teamedit.capacity", $scope.teamedit.capacity);
+    formData.append("teamedit.manager", $scope.teamedit.manager);
+    formData.append("teamedit.websiteLink", $scope.teamedit.websiteLink);
+    formData.append("teamedit.image", $scope.teamedit.imageSubmit);
+    formData.append("teamedit.details", $scope.teamedit.details);
+    //post form data to the action case of the php switch
+    $http.post("teams/teams.php?action=edit&id=" + $scope.teamedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
+       //once team is added, redirect user back to the teams list
+     $location.path('/teams');
+       return false;
+    });  
+  };
+}]);
 
 
 
