@@ -1,5 +1,9 @@
 <form class="form-horizontal" ng-controller="editTeamController" ng-submit="editTeam()">
+	
 	<p>The team ID is: {{ teamedit.id }}</p>
+
+
+	
 	<div class="form-group">
 		<label for="name" class="col-sm-2 form-label">Team Name:</label>
 		<div class="col-sm-4">
@@ -42,12 +46,14 @@
 		</div>
 		
 		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
-		<div class="col-sm-4">				
+		<div class="col-sm-4" ng-hide="teamedit.image">				
 			<!-- Custom file read directive added to the input tag -->
 			<input type="file" id="image" class="form-control"  ng-model="teamedit.image" fileread="imageSubmit" />
 		</div>
+		<div class="col-sm-4" ng-show="teamedit.image">
+			<p ng-model="teamedit.image">{{ teamedit.image }}</p>
+		</div>
 	</div>
-
  	<div class="form-group">
             <label for="details" class="col-sm-2 form-label">Details:</label>
             <div class="col-sm-10">

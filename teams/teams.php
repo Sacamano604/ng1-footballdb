@@ -53,7 +53,24 @@ switch($_GET["action"]){
 
 	case "edit":
 		$id = $_GET['id'];
-		$file = $_POST['image'];
+
+		if(isset($_POST['image'])){
+			$file = $_POST['image'];
+		} else {
+			$dataString = $_POST['image'];
+			define('UPLOAD_DIR', '../badges/');
+			$img = $dataString;
+			if (preg_match('/png/', $dataString)){
+				$img = str_replace('data:image/png;base64,', '', $img);
+				$file = UPLOAD_DIR . uniqid() . '.png';
+			} else if (preg_match('/jpeg/', $dataString)) {
+				$img = str_replace('data:image/jpeg;base64,', '', $img);
+				$file = UPLOAD_DIR . uniqid() . '.jpg';
+			}
+			$img = str_replace(' ', '+', $img);
+			$data = base64_decode($img);
+			$success = file_put_contents($file, $data);
+		}
 
 		//echo "the id is: ".$id." and there you go";
 
