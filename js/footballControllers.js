@@ -70,6 +70,7 @@ footballControllers.controller('editTeamController', ["$scope", "$routeParams", 
     formData.append("manager", $scope.teamedit.manager);
     formData.append("websiteLink", $scope.teamedit.websiteLink);
     formData.append("image", $scope.imageSubmit);
+    formData.append("image", $scope.teamedit.image);
     formData.append("details", $scope.teamedit.details);
     //post form data to the action case of the php switch
     $http.post("teams/teams.php?action=edit&id=" + $scope.teamedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){

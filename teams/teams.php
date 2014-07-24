@@ -53,11 +53,9 @@ switch($_GET["action"]){
 
 	case "edit":
 		$id = $_GET['id'];
+		$dataString = $_POST['image'];
 
-		if(isset($_POST['image'])){
-			$file = $_POST['image'];
-		} else {
-			$dataString = $_POST['image'];
+		if (stripos($dataString, 'base64') !== false){
 			define('UPLOAD_DIR', '../badges/');
 			$img = $dataString;
 			if (preg_match('/png/', $dataString)){
@@ -70,7 +68,11 @@ switch($_GET["action"]){
 			$img = str_replace(' ', '+', $img);
 			$data = base64_decode($img);
 			$success = file_put_contents($file, $data);
+		} else {
+			$file = $_POST['image'];
 		}
+		
+
 
 		//echo "the id is: ".$id." and there you go";
 
