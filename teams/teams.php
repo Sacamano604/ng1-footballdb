@@ -48,9 +48,7 @@ switch($_GET["action"]){
 		$query->execute();
 		$mysqli->close();
 	break;
-
-
-
+	// Switch case for the edit team controller
 	case "edit":
 		$id = $_GET['id'];
 		$dataString = $_POST['image'];
@@ -71,26 +69,10 @@ switch($_GET["action"]){
 		} else {
 			$file = $_POST['image'];
 		}
-		
-
-
-		//echo "the id is: ".$id." and there you go";
-
 		$query = $mysqli->prepare('UPDATE newteamList SET name = ?, founded = ?, city = ?, stadium = ?, capacity = ?, manager = ?, websiteLink = ?, image = ?, details = ? WHERE id = ?');
 		$query->bind_param('sssssssssi', $_POST['name'], $_POST['founded'], $_POST['city'], $_POST['stadium'], $_POST['capacity'], $_POST['manager'], $_POST['websiteLink'], $file, $_POST['details'], $id);
 		$query->execute();
 		$mysqli->close();
 	break;
-
-
-
-
-
-
-
-
-
-
-
 }
 ?>

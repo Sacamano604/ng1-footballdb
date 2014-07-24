@@ -1,5 +1,4 @@
 'use strict';
-
 // Football App Module
 var footballApp = angular.module('footballApp', [
 	'ngRoute', 
