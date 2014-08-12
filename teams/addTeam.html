@@ -47,8 +47,8 @@
 		<label for="image" class="col-sm-2 form-label">Club Badge:</label>
 		<div class="col-sm-4">				
 			<!-- Custom file read directive added to the input tag -->
-			<input type="file" id="image" class="form-control" fileread="imageSubmit" />
-			<p class="help-block"> * png or jpg</p>
+			<input type="file" id="image" class="form-control" fileread="imageSubmit" ng-model="imageSubmit" />
+			<p class="help-block"> * png or jpg | <span class="disclaimer">Must include image</span></p>
 		</div>
 	</div>
 
@@ -61,7 +61,7 @@
 
      <div class="form-group">
      	<div class="col-sm-12">
-     		<button type="submit" ng-model="submit" class="btn btn-success">Add Team</button>
+     		<button type="submit" ng-model="submit" class="btn btn-success" ng-disabled="!(imageSubmit)">Add Team</button>
 			<button type="reset" class="btn btn-warning">Reset Form</button>
      	</div>
      </div>

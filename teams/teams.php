@@ -74,5 +74,20 @@ switch($_GET["action"]){
 		$query->execute();
 		$mysqli->close();
 	break;
+
+	case "delete":
+		$id = $_GET['id'];
+		$query = $mysqli->prepare('DELETE FROM newteamList WHERE id = ?');
+		$query->bind_param('i', $id);
+		$query->execute();
+		$mysqli->close();
+	break;
+
+
+
+
+
+
+
 }
 ?>

@@ -74,13 +74,29 @@ footballControllers.controller('editTeamController', ["$scope", "$routeParams", 
     //post form data to the action case of the php switch
     $http.post("teams/teams.php?action=edit&id=" + $scope.teamedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
        //once team is added, redirect user back to the teams list
-     $location.path('/teams');
+     $location.path('/teams/' + $scope.teamedit.id);
        return false;
     });  
   };
 }]);
+// Controller that handles the edit team page
+footballControllers.controller('deleteTeamController', ["$scope", "$routeParams", "$http", "$location",
+  function ($scope, $routeParams, $http, $location){
+    $scope.teamId = $routeParams.teamId;
+    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
+      $scope.teamdelete = data;
+    });
+    $scope.deleteTeam = function(){
+      $http.post("teams/teams.php?action=delete&id=" + $scope.teamId).success(function(data){
+        $location.path('/teams');
+      });
+    };
+  }]);
+
+
+
 // Directive that adds file read to the image upload in the add team controller 
-footballControllers.directive("fileread", [function () {
+footballControllers.directive("fileread", [function () {  
   return {
     scope: {
       fileread: "="

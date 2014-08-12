@@ -10,22 +10,26 @@ footballApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/teams', {
-			templateUrl: 'teams/teamList.html',
-			controllers: 'teamListController'
+				templateUrl: 'teams/teamList.html',
+				controllers: 'teamListController'
 			}).
 			when('/teams/:teamId', {
-			templateUrl: 'teams/teamTemplate.html',
-			controllers: 'teamDetailController'
+				templateUrl: 'teams/teamTemplate.html',
+				controllers: 'teamDetailController'
 			}).
 			when('/add', {
-			templateUrl: 'teams/addTeam.html',
-			controllers: 'addTeamController'
+				templateUrl: 'teams/addTeam.html',
+				controllers: 'addTeamController'
 			}).
 			when('/edit/:teamId', {
-			templateUrl: 'teams/editTeam.html',
-			controllers: 'editTeamController'	
+				templateUrl: 'teams/editTeam.html',
+				controllers: 'editTeamController'	
+			}).
+			when('/delete/:teamId', {
+				templateUrl: 'teams/deleteTeam.html',
+				controllers: 'deleteTeamController'	
 			}).
 			otherwise({
-			redirectTo: '/teams'
+				redirectTo: '/teams'
 		});
 	}]);
