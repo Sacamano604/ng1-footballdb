@@ -2,13 +2,15 @@
 
 // Controller Module
 var footballControllers = angular.module('footballControllers', []);
-// Controller for displaying the list of teams, with 3 second timeout delay    
-footballControllers.controller('teamListController', [ "$scope", "teamListService",
-  function ($scope, teamListService) {
-    teamListService.get(function(data){
-      $scope.teams = data;
-      $scope.loading = false;
-    });
+// Controller for displaying the list of teams, with 2 second timeout delay    
+footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamListService",
+  function ($scope, $timeout, teamListService) {
+    $timeout(function(){
+      teamListService.get(function(data){
+        $scope.teams = data;
+        $scope.loading = false;
+      });
+    }, 2000);
   $scope.sortField = 'name';
   $scope.reverse = false;
 }]);
