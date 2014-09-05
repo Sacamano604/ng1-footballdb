@@ -3,7 +3,8 @@
 var footballApp = angular.module('footballApp', [
 	'ngRoute', 
 	'angularFileUpload',
-	'footballControllers'
+	'footballControllers',
+	'footballServices'
 ]);
 // Football App route provider
 footballApp.config(['$routeProvider', 

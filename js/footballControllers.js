@@ -3,16 +3,14 @@
 // Controller Module
 var footballControllers = angular.module('footballControllers', []);
 // Controller for displaying the list of teams, with 3 second timeout delay    
-footballControllers.controller('teamListController', [ "$scope", "$http", "$timeout",
-	function ($scope, $http, $timeout) {
-    $timeout(function(){
-      $http({method: 'GET', url: 'teams/teams.php?action=list'}).success(function(data){
-        $scope.teams = data;
-        $scope.loading = false;
-      }, 3000);
-      });
-    $scope.sortField = 'name';
-    $scope.reverse = false;
+footballControllers.controller('teamListController', [ "$scope", "teamListService",
+  function ($scope, teamListService) {
+    teamListService.get(function(data){
+      $scope.teams = data;
+      $scope.loading = false;
+    });
+  $scope.sortField = 'name';
+  $scope.reverse = false;
 }]);
 // Controller for displaying the details of the team when the name is clicked, with 3 second timeout delay
 footballControllers.controller('teamDetailController', ["$scope", "$routeParams", "$http", "$timeout",
@@ -93,52 +91,3 @@ footballControllers.controller('deleteTeamController', ["$scope", "$routeParams"
     };
   }]);
 
-
-
-// Directive that adds file read to the image upload in the add team controller 
-footballControllers.directive("fileread", [function () {  
-  return {
-    scope: {
-      fileread: "="
-    },
-  link: function (scope, element, attributes) {
-    element.bind("change", function (changeEvent) {
-      var reader = new FileReader();
-        reader.onload = function (loadEvent) {
-          scope.$apply(function () {
-            scope.fileread = loadEvent.target.result;
-          });
-        }
-      reader.readAsDataURL(changeEvent.target.files[0]);
-    });
-  }
-  }
-}]);
-// Directive that handles the back button which can be implemented where needed.
-footballControllers.directive('backButton', function(){
-    return {
-      restrict: 'A',
-      link: function(scope, element, attrs) {
-        element.bind('click', function () {
-          history.back();
-          scope.$apply();
-        });
-      }
-    }
-});
-//Directive that makes sure any 'value' attribute assigned to an input field is bound properly.
-footballControllers.directive('input', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if (attrs.ngModel && attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-});
-//Setting the initial loading to be true for the 3 second delay on the details and list page
-footballControllers.run(function($rootScope){
-  $rootScope.loading = true;  
-});
