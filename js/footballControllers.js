@@ -15,15 +15,14 @@ footballControllers.controller('teamListController', [ "$scope", "$timeout", "te
   $scope.reverse = false;
 }]);
 // Controller for displaying the details of the team when the name is clicked, with 3 second timeout delay
-footballControllers.controller('teamDetailController', ["$scope", "$routeParams", "$http", "$timeout",
-	function ($scope, $routeParams, $http, $timeout){
+footballControllers.controller('teamDetailController', ["$scope", "$timeout", "teamDetailsService",
+	function ($scope, $timeout, teamDetailsService){
     $timeout(function(){
-      $scope.teamId = $routeParams.teamId;
-      $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
+      teamDetailsService.get(function(data){
         $scope.team = data;
         $scope.loading = false;
-      }, 3000);
-    });
+      });
+    }, 2000);
 }]);
 // Controller that handles the add team page and how the data is passed to the PHP file.
 footballControllers.controller('addTeamController', ["$scope", "$http", "$location", 
