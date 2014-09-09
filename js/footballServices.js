@@ -9,18 +9,18 @@ angular.module('footballServices', [])
 	}
 }
 }])
-.factory('teamDetailsService', ['$http', '$routeParams', function($http, $routeParams){
+.factory('teamDetailsService', ['$http', function($http){
 	return {
-		get: function(callback){
-			var teamId = $routeParams.teamId;
-			$http.get('teams/teams.php?action=detail&id=' + teamId).success(callback);
+		get: function(id, callback){
+			$http.get('teams/teams.php?action=detail&id=' + id).success(callback);
 		}
 	}
+}])
+.factory('addTeamService', ['$http', function($http){
+    return {
+    	post: function(formData){
+    		$http.post('teams/teams.php?action=add', formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success();
+    	}
+    }
 }]);
-
-
-
-
-
-
 
