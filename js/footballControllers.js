@@ -3,10 +3,10 @@
 // Controller Module
 var footballControllers = angular.module('footballControllers', []);
 // Controller for displaying the list of teams, with 2 second timeout delay    
-footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamListService",
-  function ($scope, $timeout, teamListService) {
+footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamFunctionsService",
+  function ($scope, $timeout, teamFunctionsService) {
     $timeout(function(){
-      teamListService.get(function(data){
+      teamService.teamsList.get(function(data){
         $scope.teams = data;
         $scope.loading = false;
       });
@@ -15,8 +15,8 @@ footballControllers.controller('teamListController', [ "$scope", "$timeout", "te
   $scope.reverse = false;
 }]);
 // Controller for displaying the details of the team when the name is clicked, with 3 second timeout delay
-footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$routeParams", "teamDetailsService",
-	function ($scope, $timeout, $routeParams, teamDetailsService){
+footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$routeParams", "teamFunctionsService",
+	function ($scope, $timeout, $routeParams, teamFunctionsService){
     $timeout(function(){
       teamDetailsService.get($routeParams.teamId, function(data){
         $scope.team = data;
@@ -25,8 +25,8 @@ footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$
     }, 2000);
 }]);
 // Controller that handles the add team page and how the data is passed to the PHP file.
-footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addTeamService", "assembleFormDataService",
-  function ($scope, $http, $location, addTeamService, assembleFormDataService){
+footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "teamFunctionsService", "assembleFormDataService",
+  function ($scope, $http, $location, teamFunctionsService, assembleFormDataService){
     $scope.addTeam = function(){
      var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);  
       addTeamService.post(readyFormData);
