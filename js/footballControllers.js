@@ -28,13 +28,11 @@ footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$
 footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addTeamService", "assembleFormDataService",
   function ($scope, $http, $location, addTeamService, assembleFormDataService){
     $scope.addTeam = function(){
-     var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);
+     var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);  
       addTeamService.post(readyFormData);
       $location.path('/teams');       
       }; 
 }]);
-
-
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
   function ($scope, $routeParams, $http, $location){

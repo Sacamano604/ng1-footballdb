@@ -3,20 +3,22 @@
 angular.module('footballServices', [])
 
 
-.factory('assembleFormDataService', function(formData){
-	var populateFormData = {
-		var formData = new FormData();
-		formData.append("name", name);
-		formData.append("founded", founded);
-		formData.append("city", city);
-		formData.append("stadium", stadium);
-		formData.append("capacity", capacity);
-		formData.append("manager", manager);
-		formData.append("websiteLink", websiteLink);
-		formData.append("image", imageSubmit);
-		formData.append("details", details);
-	}
-	return populateFormData;
+.factory('assembleFormDataService', function(){
+	return {
+		populateFormData: function(name, founded, city, stadium, capacity, manager, websiteLink, imageSubmit, details){
+			var formData = new FormData();
+			formData.append("name", name);
+			formData.append("founded", founded);
+			formData.append("city", city);
+			formData.append("stadium", stadium);
+			formData.append("capacity", capacity);
+			formData.append("manager", manager);
+			formData.append("websiteLink", websiteLink);
+			formData.append("image", imageSubmit);
+			formData.append("details", details);
+			return formData; 
+		}
+	};
 })
 .factory('teamListService', ['$http', function($http){
 	return {
