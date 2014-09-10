@@ -25,26 +25,16 @@ footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$
     }, 2000);
 }]);
 // Controller that handles the add team page and how the data is passed to the PHP file.
-footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addTeamService",
-  function ($scope, $http, $location, addTeamService){
+footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addTeamService", "assembleFormDataService",
+  function ($scope, $http, $location, addTeamService, assembleFormDataService){
     $scope.addTeam = function(){
-      var formData = new FormData();
-      formData.append("name", $scope.name);
-      formData.append("founded", $scope.founded);
-      formData.append("city", $scope.city);
-      formData.append("stadium", $scope.stadium);
-      formData.append("capacity", $scope.capacity);
-      formData.append("manager", $scope.manager);
-      formData.append("websiteLink", $scope.websiteLink);
-      formData.append("image", $scope.imageSubmit);
-      formData.append("details", $scope.details);
-      //Send the form data to the service.
-      addTeamService.post(formData).success(function(data){
-      //Upon success, send me back to the list of teams.
-       $location.path('/teams');       
-      }); 
-  };
+     var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);
+      addTeamService.post(readyFormData);
+      $location.path('/teams');       
+      }; 
 }]);
+
+
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
   function ($scope, $routeParams, $http, $location){
