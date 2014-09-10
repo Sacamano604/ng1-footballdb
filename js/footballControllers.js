@@ -25,47 +25,25 @@ footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$
     }, 2000);
 }]);
 // Controller that handles the add team page and how the data is passed to the PHP file.
-footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addteamService",
-  function ($scope, $http, $location, addteamService){
+footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "addTeamService",
+  function ($scope, $http, $location, addTeamService){
     $scope.addTeam = function(){
       var formData = new FormData();
-          formData.append("name", $scope.name);
-          formData.append("founded", $scope.founded);
-          formData.append("city", $scope.city);
-          formData.append("stadium", $scope.stadium);
-          formData.append("capacity", $scope.capacity);
-          formData.append("manager", $scope.manager);
-          formData.append("websiteLink", $scope.websiteLink);
-          formData.append("image", $scope.imageSubmit);
-          formData.append("details", $scope.details);
-
-      addteamService.post(formData, function(data){
-       $scope.team = data;
-       return false;
-        $location.path('/teams');
-    });
-      
+      formData.append("name", $scope.name);
+      formData.append("founded", $scope.founded);
+      formData.append("city", $scope.city);
+      formData.append("stadium", $scope.stadium);
+      formData.append("capacity", $scope.capacity);
+      formData.append("manager", $scope.manager);
+      formData.append("websiteLink", $scope.websiteLink);
+      formData.append("image", $scope.imageSubmit);
+      formData.append("details", $scope.details);
+      //Send the form data to the service.
+      addTeamService.post(formData).success(function(data){
+      //Upon success, send me back to the list of teams.
+       $location.path('/teams');       
+      }); 
   };
-
-  // $scope.addTeam = function(){
-  //   //Append all data to a new 'formData();'
-  //   var formData = new FormData();
-  //   formData.append("name", $scope.name);
-  //   formData.append("founded", $scope.founded);
-  //   formData.append("city", $scope.city);
-  //   formData.append("stadium", $scope.stadium);
-  //   formData.append("capacity", $scope.capacity);
-  //   formData.append("manager", $scope.manager);
-  //   formData.append("websiteLink", $scope.websiteLink);
-  //   formData.append("image", $scope.imageSubmit);
-  //   formData.append("details", $scope.details);
-  //   //post form data to the add action case of the php switch
-  //   $http.post("teams/teams.php?action=add", formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
-  //      //once team is added, redirect user back to the teams list
-  //      $location.path('/teams');
-  //      return false;
-  //   });  
-  // };
 }]);
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
