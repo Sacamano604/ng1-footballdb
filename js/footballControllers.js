@@ -29,8 +29,10 @@ footballControllers.controller('addTeamController', ["$scope", "$http", "$locati
   function ($scope, $http, $location, teamService, assembleFormDataService){
     $scope.addTeam = function(){
      var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);  
-      teamService.addTeams(readyFormData);
-      $location.path('/teams');       
+      teamService.addTeams(readyFormData, function(){
+        $location.path('/teams');         
+      });
+      
       }; 
 }]);
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
