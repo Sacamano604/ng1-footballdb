@@ -6,7 +6,7 @@ var footballControllers = angular.module('footballControllers', []);
 footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamService",
   function ($scope, $timeout, teamService) {
     $timeout(function(){
-      teamService.teamsList.get(function(data){
+      teamService.teamsList(function(data){
         $scope.teams = data;
         $scope.loading = false;
       });
@@ -18,7 +18,7 @@ footballControllers.controller('teamListController', [ "$scope", "$timeout", "te
 footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$routeParams", "teamService",
 	function ($scope, $timeout, $routeParams, teamService){
     $timeout(function(){
-      teamService.teamsDetails.get($routeParams.teamId, function(data){
+      teamService.teamsDetails($routeParams.teamId, function(data){
         $scope.team = data;
         $scope.loading = false;
       });
@@ -29,7 +29,7 @@ footballControllers.controller('addTeamController', ["$scope", "$http", "$locati
   function ($scope, $http, $location, teamService, assembleFormDataService){
     $scope.addTeam = function(){
      var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);  
-      teamService.addTeams.post(readyFormData);
+      teamService.addTeams(readyFormData);
       $location.path('/teams');       
       }; 
 }]);

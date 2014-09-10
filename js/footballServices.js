@@ -2,7 +2,6 @@
 
 angular.module('footballServices', [])
 
-
 .factory('assembleFormDataService', function(){
 	return {
 		populateFormData: function(name, founded, city, stadium, capacity, manager, websiteLink, imageSubmit, details){
@@ -28,8 +27,8 @@ angular.module('footballServices', [])
 		teamsDetails: function(id, callback){
 			$http.get('teams/teams.php?action=detail&id=' + id).success(callback);
 		},
-		addTeams: function(readyFormData){
-			$http.post('teams/teams.php?action=add', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success();
+		addTeams: function(readyFormData, callback){
+			$http.post('teams/teams.php?action=add', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(callback);
 		}
 	}
 }]);
