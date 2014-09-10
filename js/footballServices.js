@@ -20,8 +20,8 @@ angular.module('footballServices', [])
 		}
 	};
 })
-.factory('teamFunctionsService', ['$http', function($http){
-	var teamService = {
+.factory('teamService', ['$http', function($http){
+	return {
 		teamsList: function(callback){
 			$http.get('teams/teams.php?action=list').success(callback);
 		},

@@ -3,8 +3,8 @@
 // Controller Module
 var footballControllers = angular.module('footballControllers', []);
 // Controller for displaying the list of teams, with 2 second timeout delay    
-footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamFunctionsService",
-  function ($scope, $timeout, teamFunctionsService) {
+footballControllers.controller('teamListController', [ "$scope", "$timeout", "teamService",
+  function ($scope, $timeout, teamService) {
     $timeout(function(){
       teamService.teamsList.get(function(data){
         $scope.teams = data;
@@ -15,21 +15,21 @@ footballControllers.controller('teamListController', [ "$scope", "$timeout", "te
   $scope.reverse = false;
 }]);
 // Controller for displaying the details of the team when the name is clicked, with 3 second timeout delay
-footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$routeParams", "teamFunctionsService",
-	function ($scope, $timeout, $routeParams, teamFunctionsService){
+footballControllers.controller('teamDetailController', ["$scope", "$timeout", "$routeParams", "teamService",
+	function ($scope, $timeout, $routeParams, teamService){
     $timeout(function(){
-      teamDetailsService.get($routeParams.teamId, function(data){
+      teamService.teamsDetails.get($routeParams.teamId, function(data){
         $scope.team = data;
         $scope.loading = false;
       });
     }, 2000);
 }]);
 // Controller that handles the add team page and how the data is passed to the PHP file.
-footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "teamFunctionsService", "assembleFormDataService",
-  function ($scope, $http, $location, teamFunctionsService, assembleFormDataService){
+footballControllers.controller('addTeamController', ["$scope", "$http", "$location", "teamService", "assembleFormDataService",
+  function ($scope, $http, $location, teamService, assembleFormDataService){
     $scope.addTeam = function(){
      var readyFormData = assembleFormDataService.populateFormData($scope.name, $scope.founded, $scope.city, $scope.stadium, $scope.capacity, $scope.manager, $scope.websiteLink, $scope.imageSubmit, $scope.details);  
-      addTeamService.post(readyFormData);
+      teamService.addTeams.post(readyFormData);
       $location.path('/teams');       
       }; 
 }]);
