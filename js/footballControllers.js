@@ -65,15 +65,14 @@ footballControllers.controller('editTeamController', ["$scope", "$routeParams", 
     });  
   };
 }]);
-// Controller that handles the edit team page
+// Controller that handles the team deletion
 footballControllers.controller('deleteTeamController', ["$scope", "$routeParams", "$http", "$location", "teamService",
   function ($scope, $routeParams, $http, $location, teamService){
-    $scope.teamId = $routeParams.teamId;
-    teamService.teamsDetails($scope.teamId, function(data){
+    teamService.teamsDetails($routeParams.teamId, function(data){
       $scope.teamdelete = data;
     });
     $scope.deleteTeam = function(){
-      teamService.deleteTeam($scope.teamId, function(data){
+      teamService.deleteTeam($routeParams.teamId, function(data){
         $location.path('/teams');
       });
     };
