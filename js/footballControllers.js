@@ -32,8 +32,7 @@ footballControllers.controller('addTeamController', ["$scope", "$http", "$locati
       teamService.addTeams(readyFormData, function(){
         $location.path('/teams');         
       });
-      
-      }; 
+    }; 
 }]);
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
@@ -67,16 +66,19 @@ footballControllers.controller('editTeamController', ["$scope", "$routeParams", 
   };
 }]);
 // Controller that handles the edit team page
-footballControllers.controller('deleteTeamController', ["$scope", "$routeParams", "$http", "$location",
-  function ($scope, $routeParams, $http, $location){
+footballControllers.controller('deleteTeamController', ["$scope", "$routeParams", "$http", "$location", "teamService",
+  function ($scope, $routeParams, $http, $location, teamService){
     $scope.teamId = $routeParams.teamId;
-    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
+    teamService.teamsDetails($scope.teamId, function(data){
       $scope.teamdelete = data;
     });
     $scope.deleteTeam = function(){
-      $http.post("teams/teams.php?action=delete&id=" + $scope.teamId).success(function(data){
+      teamService.deleteTeam($scope.teamId, function(data){
         $location.path('/teams');
       });
     };
-  }]);
+}]);
+
+
+
 

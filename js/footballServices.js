@@ -29,31 +29,10 @@ angular.module('footballServices', [])
 		},
 		addTeams: function(readyFormData, callback){
 			$http.post('teams/teams.php?action=add', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(callback);
+		},
+		deleteTeam: function(id, callback){
+			$http.post('teams/teams.php?action=delete&id=' + id).success(callback);
 		}
 	}
 }]);
 
-
-
-
-// .factory('teamListService', ['$http', function($http){
-// 	return {
-// 		get: function(callback){
-// 			$http.get('teams/teams.php?action=list').success(callback);
-// 	}
-// }
-// }])
-// .factory('teamDetailsService', ['$http', function($http){
-// 	return {
-// 		get: function(id, callback){
-// 			$http.get('teams/teams.php?action=detail&id=' + id).success(callback);
-// 		}
-// 	}
-// }])
-// .factory('addTeamService', ['$http', function($http){
-//     return {
-//     	post: function(readyFormData){
-//     		$http.post('teams/teams.php?action=add', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success();
-//     	}
-//     }
-// }]);
