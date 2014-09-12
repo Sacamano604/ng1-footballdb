@@ -35,34 +35,18 @@ footballControllers.controller('addTeamController', ["$scope", "$http", "$locati
     }; 
 }]);
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
-footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location",
-  function ($scope, $routeParams, $http, $location){
-    $scope.teamId = $routeParams.teamId;
-    $http({method: 'GET', url: 'teams/teams.php?action=detail&id=' + $scope.teamId}).success(function(data){
+footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location", "teamService", "assembleFormDataService",
+  function ($scope, $routeParams, $http, $location, teamService, assembleFormDataService){
+    
+    teamService.teamsDetails($routeParams.teamId, function(data){
       $scope.teamedit = data;
     });
-    $scope.editTeam = function(){
-    //Append all data to a new 'formData();'
-    var formData = new FormData();
-    formData.append("name", $scope.teamedit.name);
-    formData.append("founded", $scope.teamedit.founded);
-    formData.append("city", $scope.teamedit.city);
-    formData.append("stadium", $scope.teamedit.stadium);
-    formData.append("capacity", $scope.teamedit.capacity);
-    formData.append("manager", $scope.teamedit.manager);
-    formData.append("websiteLink", $scope.teamedit.websiteLink);
-    if ($scope.imageSubmit){
-      formData.append("image", $scope.imageSubmit);
-    } else {
-       formData.append("image", $scope.teamedit.image);
-    } 
-    formData.append("details", $scope.teamedit.details);
-    //post form data to the action case of the php switch
-    $http.post("teams/teams.php?action=edit&id=" + $scope.teamedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
-       //once team is added, redirect user back to the teams list
-     $location.path('/teams/' + $scope.teamedit.id);
-       return false;
-    });  
+
+  $scope.editTeam = function(){
+    var readyFormData = assembleFormDataService.populateFormData($scope.teamedit.name, $scope.teamedit.founded, $scope.teamedit.city, $scope.teamedit.stadium, $scope.teamedit.capacity, $scope.teamedit.manager, $scope.teamedit.websiteLink, $scope.teamedit.image, $scope.teamedit.details);  
+      teamService.editTeam($routeParams.teamId, readyFormData, function(){
+        $location.path('/teams');         
+    });
   };
 }]);
 // Controller that handles the team deletion
@@ -77,7 +61,3 @@ footballControllers.controller('deleteTeamController', ["$scope", "$routeParams"
       });
     };
 }]);
-
-
-
-

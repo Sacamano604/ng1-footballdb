@@ -30,6 +30,9 @@ angular.module('footballServices', [])
 		addTeams: function(readyFormData, callback){
 			$http.post('teams/teams.php?action=add', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(callback);
 		},
+		editTeam: function(id, readyFormData, callback){
+			$http.post('teams/teams.php?action=edit&id=' + id, readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(callback);	
+		},
 		deleteTeam: function(id, callback){
 			$http.post('teams/teams.php?action=delete&id=' + id).success(callback);
 		}
