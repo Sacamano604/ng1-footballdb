@@ -10,6 +10,9 @@ var footballApp = angular.module('footballApp', [
 footballApp.config(['$routeProvider', 
 	function($routeProvider) {
 		$routeProvider.
+			when('/welcome', {
+				templateUrl: 'teams/welcome.html'
+			}).
 			when('/teams', {
 				templateUrl: 'teams/teamList.html',
 				controllers: 'teamListController'
@@ -31,6 +34,6 @@ footballApp.config(['$routeProvider',
 				controllers: 'deleteTeamController'	
 			}).
 			otherwise({
-				redirectTo: '/teams'
+				redirectTo: '/welcome'
 		});
 	}]);

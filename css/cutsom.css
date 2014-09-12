@@ -1,0 +1,31 @@
+#loadingDiv {
+  margin-top: 25px;
+}
+#addTable {
+  margin-top: 25px;
+}
+#teamBadge {
+  display: block;
+  margin: 0 auto;
+}
+#detailsTable table {
+  margin-left: 0;
+  padding-left: 0;
+}
+#detailsTable td, #detailsTable th {
+  border-top: none;
+}
+#warningDiv {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.disclaimer{
+  color: red;
+}
+body {
+ min-height: 1200px;
+}
+.navbar-static-top {
+  margin-bottom: 19px;
+}

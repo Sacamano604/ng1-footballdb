@@ -37,11 +37,9 @@ footballControllers.controller('addTeamController', ["$scope", "$http", "$locati
 //Controller that handles the edit team page and how the data is pulled/pushed to the DB
 footballControllers.controller('editTeamController', ["$scope", "$routeParams", "$http", "$location", "teamService", "assembleFormDataService",
   function ($scope, $routeParams, $http, $location, teamService, assembleFormDataService){
-    
     teamService.teamsDetails($routeParams.teamId, function(data){
       $scope.teamedit = data;
     });
-
   $scope.editTeam = function(){
     var readyFormData = assembleFormDataService.populateFormData($scope.teamedit.name, $scope.teamedit.founded, $scope.teamedit.city, $scope.teamedit.stadium, $scope.teamedit.capacity, $scope.teamedit.manager, $scope.teamedit.websiteLink, $scope.teamedit.image, $scope.teamedit.details);  
       teamService.editTeam($routeParams.teamId, readyFormData, function(){
@@ -61,3 +59,10 @@ footballControllers.controller('deleteTeamController', ["$scope", "$routeParams"
       });
     };
 }]);
+// Handles which nav bar element is in an active state
+function HeaderController($scope, $location) 
+{ 
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+}

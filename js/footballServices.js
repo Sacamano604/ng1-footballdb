@@ -2,6 +2,7 @@
 
 angular.module('footballServices', [])
 
+// Factory responsible for assembling the form data before it's passed over the php
 .factory('assembleFormDataService', function(){
 	return {
 		populateFormData: function(name, founded, city, stadium, capacity, manager, websiteLink, imageSubmit, details){
@@ -19,6 +20,7 @@ angular.module('footballServices', [])
 		}
 	};
 })
+// One big team service that handles the individual components we'll need for the teams
 .factory('teamService', ['$http', function($http){
 	return {
 		teamsList: function(callback){
